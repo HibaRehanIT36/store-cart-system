@@ -1,12 +1,13 @@
 import React, { useState } from "react";
-import { addedProductType, cartItemType, quanitySelectorType } from "../types";
+import { addedProductType, cartItemType, productStatus, quanitySelectorType } from "../types";
 
-export function UseGetCartHandler() {
+
+export function UseGetCartHandler(changeProductStatus:(updatedStatus: productStatus, id: number) =>void) {
   const [CartItems, setCratItems] = useState<cartItemType[]>([]);
   const addCartItem = (product: addedProductType) => {
     if (CartItems.some((cartItem) => cartItem.id === product.id))
       window.alert("This item is already added to your cart");
-    else
+    else{
       setCratItems((prev) => [
         ...prev,
         {
@@ -14,10 +15,13 @@ export function UseGetCartHandler() {
           quantity: 1,
         },
       ]);
+      changeProductStatus("added" , product.id);
+    }
   };
 
   const deleteCartItem = (id: number) => {
     setCratItems((prev) => prev.filter((item) => item.id !== id));
+    changeProductStatus("normal" , id);
   };
 
   const editCartItem = (
@@ -48,6 +52,7 @@ export function UseGetCartHandler() {
         window.alert("your order has been processed successfully");
       })
       .catch((error) => {
+        setCratItems([]);
         window.alert("something went wrong!!\nplease try again");
       });
   };
