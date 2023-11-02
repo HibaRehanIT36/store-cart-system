@@ -1,0 +1,65 @@
+@import url('./colors.css');
+
+/* header part  */
+.header{
+    background: url("../assets/header.jpg");
+    background-size: cover;
+    background-position:center;
+    height: 350px;
+  
+}
+.header h1{
+    text-align: center;
+    font-size: 35px;
+    color:var(--primary-color);
+    padding: 20px 0;
+    position: absolute;
+    left: 0; 
+    text-transform: capitalize;
+    text-align: center;
+    font-size: 35px;
+    padding: 60px 30px;
+    position: absolute;
+    left: 0;
+    text-transform: capitalize;
+
+    animation: moveFromRight 2s linear forwards;
+}
+
+/* pagination part  */
+.pagination-container {
+    position: absolute;
+    display: flex;
+    gap: 15px;
+    top: 10px;
+    margin-left: 20px;
+}
+.pagination-container .prev-button , .pagination-container .next-button{
+    cursor: pointer;
+    transition: 0.3s;
+    width: 45px;
+    height: 17px;
+    border: none;
+    background-color: transparent;
+}
+
+.pagination-container .prev-button:hover , .pagination-container .next-button:hover{
+    scale: 1.1;
+}
+.pagination-container .disabled , .pagination-container .disabled{
+    cursor: not-allowed;
+}
+.pagination-container .disabled:hover , .pagination-container .disabled:hover{
+  scale: none;
+}
+.pagination-container .prev-button{
+    background-image: url("../assets/prev.png");
+    background-size: 45px;
+    background-position: center;
+}
+
+.pagination-container .next-button{
+    background-image: url("../assets/next.png");
+    background-size: cover;
+    background-position: center;
+}
