@@ -1,5 +1,5 @@
 import React from "react";
-import { cartItemType, cartItempPropsType } from "../../types";
+import { cartItempPropsType } from "../../types";
 
 function CartItem(props: cartItempPropsType) {
   const { cartItemInfo, deleteCartItem, editCartItem } = props;

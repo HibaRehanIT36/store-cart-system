@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import CartItem from "./CartItem";
 import CartFooter from "./CartFooter";
-import { UseGetCartHandler } from "../../hooks/UseGetCartHandler";
-import { cartItemType, cartPropsType } from "../../types";
+import { cartPropsType } from "../../types";
 
 function Cart(props: cartPropsType) {
   const { CartItems, deleteCartItem, editCartItem, buyCartItems } = props;
-  const [showCart, setShowCart] = useState(false);
+  const [showCart, setShowCart] = useState(true);
 
   return (
     <>
