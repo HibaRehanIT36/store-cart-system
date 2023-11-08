@@ -41,6 +41,10 @@ export function UseGetCartHandler(changeProductStatus:(updatedStatus: productSta
       })
     );
   };
+  const EmptyCart = () => {
+    CartItems.forEach((item) => changeProductStatus("normal", item.id));
+    setCratItems([]);
+  };
   const buyCartItems = () => {
     fetch("https://api.example.com/items", {
       method: "POST",
@@ -48,11 +52,11 @@ export function UseGetCartHandler(changeProductStatus:(updatedStatus: productSta
     })
       .then((response) => response.json())
       .then((createdItem) => {
-        setCratItems([]);
+        EmptyCart();
         window.alert("your order has been processed successfully");
       })
       .catch((error) => {
-        setCratItems([]);
+        EmptyCart();
         window.alert("something went wrong!!\nplease try again");
       });
   };
